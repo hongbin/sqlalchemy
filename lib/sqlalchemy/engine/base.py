@@ -1093,6 +1093,10 @@ class Connection(Connectable):
                     fn(self, cursor, statement, parameters,
                        context, context.executemany)
 
+        import traceback
+        traceback.print_stack()
+        print("ssssssssssstatement: " + repr(statement))
+        #print("%r" % sql_util._repr_params(parameters, batches=10))
         if self._echo:
             self.engine.logger.info(statement)
             self.engine.logger.info(
